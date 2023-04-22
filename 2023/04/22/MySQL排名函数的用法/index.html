@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>best-jun の世界</title>
+        <title>MySQL中rank() over、dense_rank() over、row_number() over函数的用法 | best-jun の世界</title>
         <meta name="author" content="best-jun" />
         <meta name="description" content="主要用于记录个人感想，也作为学习笔记。" />
         <meta name="keywords" content="Java 感悟 学习笔记" />
@@ -32,7 +32,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -141,36 +143,11 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
-                <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>best-jun の世界</h1>
-                <h3></h3>
-                <h5>主要用于记录个人感想，也作为学习笔记。</h5>
-            </div>
-        </span>
+                <div class="article">
+    <div>
+        <h1>MySQL中rank() over、dense_rank() over、row_number() over函数的用法</h1>
     </div>
-</div>
-<div id="home-posts-wrap"  ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2023/04/22/MySQL%E6%8E%92%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/">
-        <h2 class="post-title">MySQL中rank() over、dense_rank() over、row_number() over函数的用法</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -180,198 +157,21 @@
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h5 id="一：rank-over"><a href="#一：rank-over" class="headerlink" title="一：rank() over"></a>一：rank() over</h5><p>作用：根据条件排名，条件相同排名相同；后续排名根据实际位数开始<br>格式：rank() over( partition by 列名 order by 列名 [desc&#x2F;asc] )<br>例子：<code>select id, name, score, rank() over(order by score desc) as `rank` from student</code><br><img src="/images/rank.png" alt="rank"></p>
+    
+    <div class="content" v-pre>
+        <h5 id="一：rank-over"><a href="#一：rank-over" class="headerlink" title="一：rank() over"></a>一：rank() over</h5><p>作用：根据条件排名，条件相同排名相同；后续排名根据实际位数开始<br>格式：rank() over( partition by 列名 order by 列名 [desc&#x2F;asc] )<br>例子：<code>select id, name, score, rank() over(order by score desc) as `rank` from student</code><br><img src="/images/rank.png" alt="rank"></p>
 <h5 id="二：dense-rank-over"><a href="#二：dense-rank-over" class="headerlink" title="二：dense_rank() over"></a>二：dense_rank() over</h5><p>作用：根据条件排名，条件相同排名相同；后续排名从实际排名开始<br>格式：dense_rank() over( partition by 列名 order by 列名 [desc&#x2F;asc] )<br>例子：<code>select id, name, score, dense_rank() over(order by score desc) as `rank` from student</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">不使用函数可以这样写：</span><br><span class="line">select id, name, score, </span><br><span class="line">(select count(distinct score) from student t2 where t2.score &gt;= t1.score) as `rank` </span><br><span class="line">from student t1                                                                                     </span><br><span class="line">order by t1.score desc                                                                                </span><br></pre></td></tr></table></figure>
 <p><img src="/images/dense_rank.png" alt="rank"></p>
 <h5 id="三：row-number-over"><a href="#三：row-number-over" class="headerlink" title="三：row_number() over"></a>三：row_number() over</h5><p>作用：根据条件排名，条件相同排名也不相同；后续排名一直+1<br>格式：row_number() over( partition by 列名 order by 列名 [desc&#x2F;asc] )<br>例子：<code>select id, name, score, row_number() over(order by score desc) as `rank` from student</code><br><img src="/images/row_number.png" alt="rank"></p>
 <p style="color: red">注意：在使用over等开窗函数时，over里头的分组及排序的执行晚于“where，group by，order by”的执行。</p>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/22/MySQL%E6%8E%92%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/16/Tags/me/">
-        <h2 class="post-title">myTags</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/16/Tags/me/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/16/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B%E6%98%AF%E6%80%8E%E4%B9%88%E6%8F%90%E5%8D%87%E7%9A%84%EF%BC%9F/">
-        <h2 class="post-title">架构能力是怎么提升的？</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>没有捷径。<br>想要提升架构能力可不简单，不仅仅需要阅读大量的书籍，更重要的是在企业中不断参与项目实践，积累经验。</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/16/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B%E6%98%AF%E6%80%8E%E4%B9%88%E6%8F%90%E5%8D%87%E7%9A%84%EF%BC%9F/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/">
-        <h2 class="post-title">我在广东深圳打工的日子</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/9
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>记得那是一个阴雨连绵的早上，我拖着破旧的行李箱，从南宁东站出发，在动车上睡了3个多小时后，迷迷糊糊的来的了福田，这也是我第一次来到深圳这个大城市。。。</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/09/hello-world/">
-        <h2 class="post-title">Hello World</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/9
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>Hexo 博客今天终于搭建好了，纪念一下</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/09/hello-world/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
-    <div class="prev">
-        
-    </div>
-    <div class="page-index">
-        
-        <span class="current">1</span>
-        
-    </div>
-    <div class="next">
-        
-    </div>
-</div>
-
     </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">best-jun</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        <div class="icon-links">
-            
-            <span class="icon-link">
-                <a href="/">
-                    <i
-                        class="fa-brands fa-github fa-fw"
-                    ></i>
-                </a>
-            </span>
-            
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.netlify.app">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
+    
+    
+    
+    
     
 </div>
 
@@ -404,6 +204,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
 		
 		<canvas
