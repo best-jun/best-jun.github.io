@@ -166,6 +166,443 @@
         
 
 <div class="post">
+    <a href="/2023/05/03/markdown%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/">
+        <h2 class="post-title">markdown语法汇总</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/3
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="一、markdown简介"><a href="#一、markdown简介" class="headerlink" title="一、markdown简介"></a>一、markdown简介</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-tutorial.html">菜鸟教程链接</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/VistorsYan/article/details/109138602">原文链接</a></p>
+<p>1.1 markdown背景</p>
+<ol>
+<li>markdown是一种轻量级标记语言，她与徐人们使用易读易写的纯文本格式编写文档。</li>
+<li>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。</li>
+<li>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</li>
+<li>Markdown 编写的文档后缀为 .md, .markdown。</li>
+</ol>
+<p>1.2 markdown应用</p>
+<p>Markdown 能被使用来撰写电子书，如：Gitbook。<br>当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等。</p>
+<p>1.3 编辑器</p>
+<p>编辑器有很多种，基本各大编辑器都可以编辑markdown格式文档。<br>比如：Typora，sublime Text, coderunner,印象笔记，vim等等等。具体的可以百度，都非常好用。</p>
+<h1 id="二、markdown基本操作"><a href="#二、markdown基本操作" class="headerlink" title="二、markdown基本操作"></a>二、markdown基本操作</h1><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><p>使用#号标记，可以表示1-6级标题，随#个数递增。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+<p>注：最后一个#与文字间一定要有一个空格。<br>显示效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h2 id="2-换行"><a href="#2-换行" class="headerlink" title="2.换行"></a>2.换行</h2><p>markdown换行方式有很多种</p>
+<ul>
+<li>直接在一句话后面敲两个空格</li>
+<li>两句话之间加一个空行</li>
+<li>用HTML标签<code>&lt;br/&gt;</code></li>
+</ul>
+<h2 id="3-字体"><a href="#3-字体" class="headerlink" title="3.字体"></a>3.字体</h2><p>markdown支持几种字体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*斜体文本*</span><br><span class="line">_斜体文本_</span><br><span class="line">**粗体文本**</span><br><span class="line">__粗体文本__</span><br><span class="line">***粗斜体文本***</span><br><span class="line">___粗斜体文本___</span><br></pre></td></tr></table></figure>
+<p>把你想修改的字段直接放在中间即可。显示效果如下：</p>
+<p><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
+<h2 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h2><p>几种分割线的写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line"></span><br><span class="line">* * *</span><br><span class="line"></span><br><span class="line">*****</span><br><span class="line"></span><br><span class="line">- - -</span><br><span class="line"></span><br><span class="line">----------</span><br></pre></td></tr></table></figure>
+<p>显示效果：<br>best-jun best-jun best-jun best-jun best-jun best-jun</p>
+<hr>
+<p> best-jun best-jun best-jun best-jun best-jun best-jun</p>
+<hr>
+<p> best-jun best-jun best-jun best-jun best-jun best-jun</p>
+<hr>
+<p> best-jun best-jun best-jun best-jun best-jun best-jun</p>
+<hr>
+<p> best-jun best-jun best-jun best-jun best-jun best-jun</p>
+<hr>
+<h2 id="5-删除线，下划线"><a href="#5-删除线，下划线" class="headerlink" title="5.删除线，下划线"></a>5.删除线，下划线</h2><p>写法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~~删除线~~</span><br><span class="line"></span><br><span class="line">&lt;u&gt;下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+<p>显示效果：<br><del>删除线</del></p>
+<p><u>下划线</u></p>
+<h2 id="6-分点条列"><a href="#6-分点条列" class="headerlink" title="6.分点条列"></a>6.分点条列</h2><h4 id="1-无序"><a href="#1-无序" class="headerlink" title="1.无序"></a>1.无序</h4><p>markdown可以通过 * - + 开头作为列表标记。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* 第一行</span><br><span class="line">* 第二行</span><br><span class="line"></span><br><span class="line">- 第一行</span><br><span class="line">- 第二行</span><br><span class="line"></span><br><span class="line">+ 第一行</span><br><span class="line">+ 第二行</span><br></pre></td></tr></table></figure>
+<p>显示效果：</p>
+<ul>
+<li>第一行</li>
+<li>第二行</li>
+</ul>
+<ul>
+<li>第一行</li>
+<li>第二行</li>
+</ul>
+<ul>
+<li>第一行</li>
+<li>第二行</li>
+</ul>
+<h4 id="2-有序"><a href="#2-有序" class="headerlink" title="2.有序"></a>2.有序</h4><p>有序的直接数字后面跟着一个点就可以了，和咱们平时写的一样。</p>
+<h4 id="3-嵌套使用"><a href="#3-嵌套使用" class="headerlink" title="3.嵌套使用"></a>3.嵌套使用</h4><p>有序无序也可以嵌套使用 如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.第一行</span><br><span class="line">  - 第一点</span><br><span class="line">  - 第二点</span><br></pre></td></tr></table></figure>
+<p>显示效果：</p>
+<p>1.第一行</p>
+<ul>
+<li>第一点</li>
+<li>第二点</li>
+</ul>
+<h2 id="7-区块"><a href="#7-区块" class="headerlink" title="7.区块"></a>7.区块</h2><p>markdown区块是在段落开头使用 “&gt;”，依然是紧跟空格<br>写法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; markdown</span><br><span class="line">&gt; 基础</span><br><span class="line">&gt; 区块引用</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<blockquote>
+<p>markdown<br>基础<br>区块引用</p>
+</blockquote>
+<h4 id="1-区块嵌套"><a href="#1-区块嵌套" class="headerlink" title="1.区块嵌套"></a>1.区块嵌套</h4><p>通过”&gt;” 个数展示分层差别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; markdown</span><br><span class="line">&gt;&gt; 基础</span><br><span class="line">&gt;&gt;&gt; 区块引用</span><br></pre></td></tr></table></figure>
+<p>显示效果：</p>
+<blockquote>
+<p>markdown</p>
+<blockquote>
+<p>基础</p>
+<blockquote>
+<p>区块引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="12-区块中使用列表"><a href="#12-区块中使用列表" class="headerlink" title="12.区块中使用列表"></a>12.区块中使用列表</h4><p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 区块中使用列表</span><br><span class="line">&gt; 1. 第一项</span><br><span class="line">&gt; 2. 第二项</span><br><span class="line">&gt;&gt; + 第一项</span><br><span class="line">&gt;&gt; + 第二项</span><br><span class="line">&gt;&gt; + 第三项</span><br></pre></td></tr></table></figure>
+<p>显示效果：</p>
+<blockquote>
+<p>区块中使用列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项<blockquote>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项<br>注：在列表中使用区块是同样的道理，这里不再赘述。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<h1 id="三、markdown进阶"><a href="#三、markdown进阶" class="headerlink" title="三、markdown进阶"></a>三、markdown进阶</h1><h2 id="1-markdown插入代码"><a href="#1-markdown插入代码" class="headerlink" title="1.markdown插入代码"></a>1.markdown插入代码</h2><ul>
+<li><p>插入一行代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`int a = 0;`//英文版的数字1左边的那个符号。。。。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><code>int a = 0;</code></p>
+</li>
+<li><p>插入代码块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```紧跟着可以写上用的什么语言，也可以不用写。</span><br><span class="line">int a = 1;</span><br><span class="line">int b = 2;</span><br><span class="line"></span><br><span class="line">​```结尾与开头一样</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">int b = 2;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2-markdown插入链接"><a href="#2-markdown插入链接" class="headerlink" title="2.markdown插入链接"></a>2.markdown插入链接</h2><p>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[链接名称](链接地址)</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：符号全英文</p>
+<p>比如：</p>
+<p><code>[这是百度](https://www.baidu.com)</code></p>
+<p>效果：<br><a target="_blank" rel="noopener" href="https://www.baidu.com/">这是百度</a></p>
+<h2 id="3-markdown插入图片"><a href="#3-markdown插入图片" class="headerlink" title="3.markdown插入图片"></a>3.markdown插入图片</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">![图片描述，可写可不写，但是中括号要有](图片地址，本地链接或者URL地址。)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">比如我此头像的图片：</span><br><span class="line">![](https://best-jun.github.io//images/avatar.jpg)</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="https://best-jun.github.io//images/avatar.jpg"></p>
+<h2 id="4-markdown表格"><a href="#4-markdown表格" class="headerlink" title="4. markdown表格"></a>4. markdown表格</h2><p>每排单元格要用| 分开 表头与内容用 — 分开</p>
+<p>语法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|  表头   | 表头  | 表头 | 表头 |</span><br><span class="line">| :---  | ---:  | :--: | ---- |</span><br><span class="line">| 单元格  | 单元格 |单元格|单元格|</span><br><span class="line">| 单元格  | 单元格 |单元格|单元格|</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表头</th>
+<th align="right">表头</th>
+<th align="center">表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<p>加<code>:</code>可以实现左对齐，右对齐，居中。不加则默认为左对齐</p>
+<h2 id="5-markdown支持HTML元素"><a href="#5-markdown支持HTML元素" class="headerlink" title="5.markdown支持HTML元素"></a>5.markdown支持HTML元素</h2><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
+<p>目前支持的 HTML 元素有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</span><br></pre></td></tr></table></figure>
+<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/05/03/markdown%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/05/02/AQS%E6%A0%B8%E5%BF%83/">
+        <h2 class="post-title">AQS核心</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/2
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>AQS(AbstractQueuedSynchronizer) 抽象队列同步器，主要用来构建锁和同步器。在java.util.concurrent.locks包里。</p>
+<ul>
+<li>核心思想：<br>如果被请求的共享资源空闲，就把当前请求资源的线程设置为有效的工作线程，并将共享资源设置为锁定状态；<br>如果被请求的共享资源被占用，那么就把当前请求资源的线程加入到一个虚拟的双向队列里面，等待分配资源。</li>
+</ul>
+<p>虚拟的双向队列是不存在队列实例的，仅存在结点之间的关联关系</p>
+<p>AQS将每条请求共享资源的线程封装成一个CLH队列锁的一个节点（Node）来实现锁的分配。<br>在 CLH 队列锁中，一个节点表示一个线程，它保存着线程的引用（thread）、 当前节点在队列中的状态（waitStatus）、前驱节点（prev）、后继节点（next）。</p>
+<p>自旋锁适用于锁竞争不激烈、锁持有时间短的场景。</p>
+<p>自旋锁是互斥锁的一种实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class SpinLock &#123;</span><br><span class="line">    </span><br><span class="line">    private AtomicReference&lt;Thread&gt; owner = new AtomicReference&lt;Thread&gt;();</span><br><span class="line">    </span><br><span class="line">    public void lock()&#123;</span><br><span class="line">        Thread currentThread = Thread.currentThread();</span><br><span class="line">        //如果锁被占用，则设置当前线程为锁的拥有者</span><br><span class="line">        while(!owner.compareAndSet(null, currentThread))&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void unlock()&#123;</span><br><span class="line">        Thread currentThread = Thread.currentThread();</span><br><span class="line">        //只有锁的拥有者才能释放锁</span><br><span class="line">        owner.compareAndSet(currentThread, null);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个监视器锁上的解锁发生在该监视器锁的后续锁定之前<br>volatile 变量的写操作发生在该变量的后续读之前<br>JVM 的垃圾回收机制使开发者无需手动释放对象。但在 AQS 中需要在释放锁时显式的设置为 null，避免引用的残留，辅助垃圾回收。</p>
+<p>以 ReentrantLock 为例，state 初始值为 0，表示未锁定状态。A 线程 lock() 时，会调用 tryAcquire() 独占该锁并将 state+1 。此后，其他线程再 tryAcquire() 时就会失败，直到 A 线程 unlock() 到 state&#x3D;0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A 线程自己是可以重复获取此锁的（state 会累加），这就是可重入的概念。但要注意，获取多少次就要释放多少次，这样才能保证 state 是能回到零态的。</p>
+<p>再以 CountDownLatch 以例，任务分为 N 个子线程去执行，state 也初始化为 N（注意 N 要与线程个数一致）。这 N 个子线程是并行执行的，每个子线程执行完后countDown() 一次，state 会 CAS(Compare and Swap) 减 1。等到所有子线程都执行完后(即 state&#x3D;0 )，会 unpark() 主调用线程，然后主调用线程就会从 await() 函数返回，继续后余动作。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/05/02/AQS%E6%A0%B8%E5%BF%83/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/04/30/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
+        <h2 class="post-title">MySQL索引与查询优化</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/30
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p>三种方式：<br>1.使用 <code>CREATE INDEX</code> 创建，语法如下：<br><code>CREATE INDEX indexName ON tableName (columnName(length));</code><br>例如：<code>CREATE INDEX name_idx ON t_user (name(10));</code><br>2.使用<code>ALTER</code>语句创建，语法如下：<br><code>ALTER TABLE tableName ADD INDEX indexName(columnName);</code><br>3.建表的时候创建索引：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName(</span><br><span class="line">    id INT NOT NULL,</span><br><span class="line">    columnName columnType,</span><br><span class="line">    INDEX [indexName] (columnName(length))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><p>可以通过show语句查看索引：<br><code>SHOW INDEX FROM t_user;</code></p>
+<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p>使用<code>ALTER</code>命令删除索引，例如：<br><code>ALTER TABLE t_user DROP INDEX name_idx;</code></p>
+<h2 id="索引使用原则"><a href="#索引使用原则" class="headerlink" title="索引使用原则"></a>索引使用原则</h2><p>因为使用索引，需要付出时间和空间的代价，所以要合理使用索引。</p>
+<h3 id="写操作比较频繁的列慎重加索引"><a href="#写操作比较频繁的列慎重加索引" class="headerlink" title="写操作比较频繁的列慎重加索引"></a>写操作比较频繁的列慎重加索引</h3><p>因为在进行DML操作时，还要更新索引，所以会降低插入、删除、和更新带索引的列的速度</p>
+<h3 id="索引越多占用磁盘空间越大"><a href="#索引越多占用磁盘空间越大" class="headerlink" title="索引越多占用磁盘空间越大"></a>索引越多占用磁盘空间越大</h3><h3 id="不要为输出列加索引"><a href="#不要为输出列加索引" class="headerlink" title="不要为输出列加索引"></a>不要为输出列加索引</h3><p>为查询条件、分组、连接条件的列加索引，而不是为查询输出结果的列加索引。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select age from t_user</span><br><span class="line">where name = &#x27;哈喽&#x27;</span><br><span class="line">group by class</span><br><span class="line">order by create_time;</span><br></pre></td></tr></table></figure>
+<p>所以可以在 <code>name</code> <code>class</code> <code>create_time</code> 列上加索引，而不是<code>age</code>。</p>
+<h3 id="考虑维度优势"><a href="#考虑维度优势" class="headerlink" title="考虑维度优势"></a>考虑维度优势</h3><p>例如 <code>class</code> 列的值包含：1、2、3、4、5，那么该列的维度就是5。<br>维度越高（理论上维度的最大值就是数据行的总数），数据列包含的独一无二的值就越多，索引的使用效果越好。<br>对于维度很低的数据列，索引几乎不会起作用，因此没有必要加索引。</p>
+<p>例如性别列的值只有男和女，每种查询结果占比大约50%。一般当查询优化处理器发现查询结果超过全表的30%的时候，就会跳过索引，直接进行全表扫描。</p>
+<h3 id="对短小的值加索引"><a href="#对短小的值加索引" class="headerlink" title="对短小的值加索引"></a>对短小的值加索引</h3><p>对短小的值加索引，意味着索引所占的空间更小，可以减少I&#x2F;O活动，同时比较索引的速度也更快。<br>尤其是主键，要尽可能短小。<br>另外，InnoDB使用的是聚集索引（clustered index），也就是把主键和数据行保存在一起。主键之外的其他索引都是二级索引，这些二级索引也保留着一份主键，这样在查询到索引以后，就可以根据主键找到对应的数据行。如果主键太长的话，会造成二级索引占用的空间变大。</p>
+<h3 id="为字符串前加索引"><a href="#为字符串前加索引" class="headerlink" title="为字符串前加索引"></a>为字符串前加索引</h3><p>前边已经讲过短小索引的种种好处了，有时候一个字符串的前几个字符就能唯一标识这条记录，这个时候设置索引的长度就是非常划算的做法。</p>
+<p>前面已经提供了设置索引length的例子，这里就不举例子了。</p>
+<h3 id="复合索引的左侧索引"><a href="#复合索引的左侧索引" class="headerlink" title="复合索引的左侧索引"></a>复合索引的左侧索引</h3><p>最左有效原则</p>
+<h3 id="索引加锁"><a href="#索引加锁" class="headerlink" title="索引加锁"></a>索引加锁</h3><p>对于InnoDB来说，索引可以让查询锁住更少的行，从而可以在并发情况下拥有更佳表现。</p>
+<h3 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h3><p>如果索引包含满足查询的所有数据，就被称为覆盖索引(Covering Indexes)，覆盖索引非常强大，可以大大提高查询性能。<br>覆盖索引高性能的原因是：</p>
+<ul>
+<li>索引通常比记录要小，覆盖索引查询只需要读索引，而不需要读记录。</li>
+<li>索引都按照值的大小进行顺序存储，相比与随机访问记录，需要更少的I&#x2F;0。</li>
+<li>大多数数据引擎能更好的缓存索引，例如MyISAM只缓存索引。</li>
+</ul>
+<h3 id="聚簇索引"><a href="#聚簇索引" class="headerlink" title="聚簇索引"></a>聚簇索引</h3><p>聚簇索引(Clustered Indexes)保证关键字的值相近的元组存储的物理位置也相同，且一个表只能有一个聚簇索引。<br>字符串类型不建议使用聚簇索引，特别是随机字符串，因为它们会使系统进行大量的移动操作。<br>并不是所有的存储引擎都支持聚簇索引，目前InnoDB支持。<br>如果使用聚簇索引，最好使用AUTO_INCREMENT列作为主键，应该尽量避免使用随机的聚簇主键。<br>从物理位置上看，聚簇索引表比非聚簇的索引表，有更好的访问性能。</p>
+<h3 id="选择合适的索引类型"><a href="#选择合适的索引类型" class="headerlink" title="选择合适的索引类型"></a>选择合适的索引类型</h3><p>从数据结构角度来看，MySQL支持的索引类型有B树索引、Hash索引等。</p>
+<ul>
+<li>B树索引</li>
+</ul>
+<p>B树索引对于&lt;、&lt;&#x3D;、 &#x3D;、 &gt;&#x3D;、 &gt;、 &lt;&gt;、!&#x3D;、 between查询，进行精确比较操作和范围比较操作都有比较高的效率。<br>B树索引也是InnoDB存储引擎默认的索引结构。</p>
+<ul>
+<li>Hash索引</li>
+</ul>
+<p>Hash索引仅能满足&#x3D;、&lt;&#x3D;&gt;、in查询。<br>Hash索引检索效率非常高，索引的检索可以一次定位，不像B树索引需要从根节点到枝节点，最后才能访问到页节点这样多次的I&#x2F;O访问，所以Hash索引的查询效率要远高于B树索引。但Hash索引不能使用范围查询。</p>
+<h2 id="查询优化建议"><a href="#查询优化建议" class="headerlink" title="查询优化建议"></a>查询优化建议</h2><h3 id="使用explain分析查询语句"><a href="#使用explain分析查询语句" class="headerlink" title="使用explain分析查询语句"></a>使用explain分析查询语句</h3><h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p>select_type表示查询中每个select子句的类型，一般有下面几个值:</p>
+<ul>
+<li><p>SIMPLE<br>简单SELECT,不使用UNION或子查询等。</p>
+</li>
+<li><p>PRIMARY<br>查询中若包含任何复杂的子部分,最外层的select被标记为PRIMARY。</p>
+</li>
+<li><p>UNION<br>UNION中的第二个或后面的SELECT语句。</p>
+</li>
+<li><p>DEPENDENT UNION<br>UNION中的第二个或后面的SELECT语句，取决于外面的查询。</p>
+</li>
+<li><p>UNION RESULT<br>UNION的结果。</p>
+</li>
+<li><p>SUBQUERY<br>子查询中的第一个SELECT。</p>
+</li>
+<li><p>DEPENDENT SUBQUERY<br>子查询中的第一个SELECT，取决于外面的查询。</p>
+</li>
+<li><p>DERIVED<br>派生表的SELECT, FROM子句的子查询。</p>
+</li>
+<li><p>UNCACHEABLE SUBQUERY<br>一个子查询的结果不能被缓存，必须重新评估外链接的第一行。</p>
+</li>
+</ul>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>type表示MySQL在表中找到所需行的方式，又称“访问类型”，常用的类型有：<br>ALL, index,  range, ref, eq_ref, const, system, NULL。<br>从左到右，性能从差到好。</p>
+<ul>
+<li><p>ALL：<br>Full Table Scan，MySQL将遍历全表以找到匹配的行。</p>
+</li>
+<li><p>index:<br>Full Index Scan，index与ALL区别为index类型只遍历索引树。</p>
+</li>
+<li><p>range:<br>只检索给定范围的行，使用一个索引来选择行。</p>
+</li>
+<li><p>ref:<br>表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值。</p>
+</li>
+<li><p>eq_ref:<br>类似ref，区别就在使用的索引是唯一索引，对于每个索引键值，表中只有一条记录匹配，简单来说，就是多表连接中使用primary key或者 unique key作为关联条件。</p>
+</li>
+<li><p>const:<br>当MySQL对查询某部分进行优化，并转换为一个常量时，使用这些类型访问。<br>如将主键置于where列表中，MySQL就能将该查询转换为一个常量。</p>
+</li>
+<li><p>NULL:<br>MySQL在优化过程中分解语句，执行时甚至不用访问表或索引，例如从一个索引列里选取最小值可以通过单独索引查找完成。</p>
+</li>
+</ul>
+<h4 id="Key"><a href="#Key" class="headerlink" title="Key"></a>Key</h4><p>key列显示MySQL实际决定使用的键（索引），如果没有选择索引，键是NULL。</p>
+<h4 id="possible-keys"><a href="#possible-keys" class="headerlink" title="possible_keys"></a>possible_keys</h4><p>possible_keys指出MySQL能使用哪个索引在表中找到记录，查询涉及到的字段上如果存在索引则该索引将被列出，但不一定被查询使用。</p>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>ref表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值。</p>
+<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>rows表示MySQL根据表统计信息，以及索引选用的情况，找到所需记录需要读取的行数。这个行数是估算的值，实际行数可能不同。</p>
+<h3 id="声明NOT-NULL"><a href="#声明NOT-NULL" class="headerlink" title="声明NOT NULL"></a>声明NOT NULL</h3><p>当数据列被声明为NOT NULL以后，在查询的时候就不需要判断是否为NULL，由于减少了判断，可以降低复杂性，提高查询速度。</p>
+<p>如果要表示数据列为空，可以使用0等代替。</p>
+<h3 id="考虑使用数值类型代替字符串"><a href="#考虑使用数值类型代替字符串" class="headerlink" title="考虑使用数值类型代替字符串"></a>考虑使用数值类型代替字符串</h3><p>MySQL对数值类型的处理速度要远远快于字符串，而且数值类型往往更加节省空间。</p>
+<p>例如对于“Male”和“Female”可以用“0”和“1”进行代替。</p>
+<h3 id="考虑使用ENUM类型"><a href="#考虑使用ENUM类型" class="headerlink" title="考虑使用ENUM类型"></a>考虑使用ENUM类型</h3><p>如果你的数据列的取值是确定有限的，可以使用ENUM类型代替字符串。因为MySQL会把这些值表示为一系列对应的数字，这样处理的速度会提高很多。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>索引是一个单独的，存储在磁盘上的数据结构，索引对数据表中一列或者多列值进行排序，索引包含着对数据表中所有数据的引用指针。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903818056974350">https://juejin.cn/post/6844903818056974350</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/04/30/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/04/29/Java%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        <h2 class="post-title">Java基础数据类型</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/29
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p><strong>Java有8种基本数据类型：</strong></p>
+<ul>
+<li>6种数字类型：<ul>
+<li>4种整数型：<code>byte</code> <code>short</code> <code>int</code> <code>long</code></li>
+<li>2种浮点型： <code>float</code> <code>double</code></li>
+</ul>
+</li>
+<li>1种字符类型：<code>char</code></li>
+<li>1种布尔类型：<code>boolean</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">基本类型</th>
+<th align="center">位数</th>
+<th align="center">字节</th>
+<th align="center">默认值</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>byte</code></td>
+<td align="center">8</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">-128 ~ 127</td>
+</tr>
+<tr>
+<td align="center"><code>short</code></td>
+<td align="center">16</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">-32768 ~ 32767</td>
+</tr>
+<tr>
+<td align="center"><code>int</code></td>
+<td align="center">32</td>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">-2147483648 ~ 2147483647</td>
+</tr>
+<tr>
+<td align="center"><code>long</code></td>
+<td align="center">64</td>
+<td align="center">8</td>
+<td align="center">0L</td>
+<td align="center">-9223372036854775808 ~ 9223372036854775807</td>
+</tr>
+<tr>
+<td align="center"><code>char</code></td>
+<td align="center">16</td>
+<td align="center">2</td>
+<td align="center">`u0000`</td>
+<td align="center">0 ~ 65535</td>
+</tr>
+<tr>
+<td align="center"><code>float</code></td>
+<td align="center">32</td>
+<td align="center">4</td>
+<td align="center">0f</td>
+<td align="center">1.4E-45 ~ 3.4028235E38</td>
+</tr>
+<tr>
+<td align="center"><code>double</code></td>
+<td align="center">64</td>
+<td align="center">8</td>
+<td align="center">0d</td>
+<td align="center">4.9E-324 ~ 1.7976931348623157E308</td>
+</tr>
+<tr>
+<td align="center"><code>boolean</code></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">false</td>
+<td align="center">true、false</td>
+</tr>
+</tbody></table>
+<p><strong>注：对应的包装类分别为：<code>Byte</code> <code>Short</code> <code>Integer</code> <code>Long</code> <code>Float</code> <code>Double</code> <code>Character</code> <code>Boolean</code></strong></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/04/29/Java%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/04/22/MySQL%E6%8E%92%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/">
         <h2 class="post-title">MySQL中rank() over、dense_rank() over、row_number() over函数的用法</h2>
     </a>
@@ -197,35 +634,6 @@
         
     </div>
     <a href="/2023/04/22/MySQL%E6%8E%92%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/16/Tags/me/">
-        <h2 class="post-title">myTags</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/16/Tags/me/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">

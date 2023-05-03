@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>Archives | best-jun の世界</title>
+        <title>Java基础数据类型 | best-jun の世界</title>
         <meta name="author" content="best-jun" />
         <meta name="description" content="主要用于记录个人感想，也作为学习笔记。" />
         <meta name="keywords" content="Java 感悟 学习笔记" />
@@ -27,6 +27,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -139,124 +143,109 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
-                
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+                <div class="article">
+    <div>
+        <h1>Java基础数据类型</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/4/29
+        </span>
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/9</div>
-                <a href="/2023/04/09/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="我在广东深圳打工的日子">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/9</div>
-                <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/">
-                    <h3>我在广东深圳打工的日子</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="架构能力是怎么提升的？">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/16</div>
-                <a href="/2023/04/16/%E6%9E%B6%E6%9E%84%E8%83%BD%E5%8A%9B%E6%98%AF%E6%80%8E%E4%B9%88%E6%8F%90%E5%8D%87%E7%9A%84%EF%BC%9F/">
-                    <h3>架构能力是怎么提升的？</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="mysql中rank()over、dense_rank()over、row_number()over函数的用法">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/22</div>
-                <a href="/2023/04/22/MySQL%E6%8E%92%E5%90%8D%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/">
-                    <h3>MySQL中rank() over、dense_rank() over、row_number() over函数的用法</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="java基础数据类型">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/29</div>
-                <a href="/2023/04/29/Java%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-                    <h3>Java基础数据类型</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="mysql索引与查询优化">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/4/30</div>
-                <a href="/2023/04/30/MySQL%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
-                    <h3>MySQL索引与查询优化</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="aqs核心">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/5/2</div>
-                <a href="/2023/05/02/AQS%E6%A0%B8%E5%BF%83/">
-                    <h3>AQS核心</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="markdown语法汇总">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/5/3</div>
-                <a href="/2023/05/03/markdown%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/">
-                    <h3>markdown语法汇总</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p><strong>Java有8种基本数据类型：</strong></p>
+<ul>
+<li>6种数字类型：<ul>
+<li>4种整数型：<code>byte</code> <code>short</code> <code>int</code> <code>long</code></li>
+<li>2种浮点型： <code>float</code> <code>double</code></li>
+</ul>
+</li>
+<li>1种字符类型：<code>char</code></li>
+<li>1种布尔类型：<code>boolean</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">基本类型</th>
+<th align="center">位数</th>
+<th align="center">字节</th>
+<th align="center">默认值</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>byte</code></td>
+<td align="center">8</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">-128 ~ 127</td>
+</tr>
+<tr>
+<td align="center"><code>short</code></td>
+<td align="center">16</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">-32768 ~ 32767</td>
+</tr>
+<tr>
+<td align="center"><code>int</code></td>
+<td align="center">32</td>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">-2147483648 ~ 2147483647</td>
+</tr>
+<tr>
+<td align="center"><code>long</code></td>
+<td align="center">64</td>
+<td align="center">8</td>
+<td align="center">0L</td>
+<td align="center">-9223372036854775808 ~ 9223372036854775807</td>
+</tr>
+<tr>
+<td align="center"><code>char</code></td>
+<td align="center">16</td>
+<td align="center">2</td>
+<td align="center">`u0000`</td>
+<td align="center">0 ~ 65535</td>
+</tr>
+<tr>
+<td align="center"><code>float</code></td>
+<td align="center">32</td>
+<td align="center">4</td>
+<td align="center">0f</td>
+<td align="center">1.4E-45 ~ 3.4028235E38</td>
+</tr>
+<tr>
+<td align="center"><code>double</code></td>
+<td align="center">64</td>
+<td align="center">8</td>
+<td align="center">0d</td>
+<td align="center">4.9E-324 ~ 1.7976931348623157E308</td>
+</tr>
+<tr>
+<td align="center"><code>boolean</code></td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">false</td>
+<td align="center">true、false</td>
+</tr>
+</tbody></table>
+<p><strong>注：对应的包装类分别为：<code>Byte</code> <code>Short</code> <code>Integer</code> <code>Long</code> <code>Float</code> <code>Double</code> <code>Character</code> <code>Boolean</code></strong></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
                 <footer id="footer">
@@ -288,6 +277,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
 		
 		<canvas
