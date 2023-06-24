@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>测试提交 | best-jun の世界</title>
+        <title>Arrays.asList()踩坑记录 | best-jun の世界</title>
         <meta name="author" content="best-jun" />
         <meta name="description" content="主要用于记录个人感想，也作为学习笔记。" />
         <meta name="keywords" content="Java 感悟 学习笔记" />
@@ -147,21 +147,37 @@
             <div id="main" v-show="!loading">
                 <div class="article">
     <div>
-        <h1>测试提交</h1>
+        <h1>Arrays.asList()踩坑记录</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/6/18
+            2023/6/24
         </span>
         
         
     </div>
     
     <div class="content" v-pre>
-        
+        <p>Arrays.asList()创建的List集合调用add()方法会报错，因为ArrayList并不是我们平时使用的那个ArrayList,而是Arrays的一个静态内部类。而这个类继承了AbstractList却没有实现add()方法。<br>这个内部类也没有实现remove()方法，如果外部去调用remove()方法，依然会抛出异常。</p>
+<h3 id="如何想要使用add-方法，可以用一下方法初始化一个ArrayList"><a href="#如何想要使用add-方法，可以用一下方法初始化一个ArrayList" class="headerlink" title="如何想要使用add()方法，可以用一下方法初始化一个ArrayList"></a>如何想要使用add()方法，可以用一下方法初始化一个ArrayList</h3><ul>
+<li><p>用stream初始化：<br><code>List list = Arrays.stream(arr).boxed().collect(Collectors.toList);</code></p>
+</li>
+<li><p>传参：<br><code>new ArrayList(Array.asList(&quot;hello&quot;, &quot;beautiful&quot;， &quot;girl&quot;));</code></p>
+</li>
+<li><p>匿名内部类：</p>
+<pre><code>
+List<String> list = new ArrayList() &#123;&#123;
+    add("hello");
+    add("pretty");
+    add("girl");
+&#125;&#125;;
+list.stream().forEach(e -> System.out.println(e));
+</code></pre></li>
+</ul>
+
     </div>
     
     

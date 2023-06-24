@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>AQS核心 | best-jun の世界</title>
+        <title>best-jun の世界</title>
         <meta name="author" content="best-jun" />
         <meta name="description" content="主要用于记录个人感想，也作为学习笔记。" />
         <meta name="keywords" content="Java 感悟 学习笔记" />
@@ -32,9 +32,7 @@
 
 
 
-
-
-
+<script src="/js/lib/home.js"></script>
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -145,62 +143,120 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
-                <div class="article">
-    <div>
-        <h1>AQS核心</h1>
+                <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>best-jun の世界</h1>
+                <h3></h3>
+                <h5>主要用于记录个人感想，也作为学习笔记。</h5>
+            </div>
+        </span>
     </div>
-    <div class="info">
+</div>
+<div id="home-posts-wrap"  ref="homePostsWrap">
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/">
+        <h2 class="post-title">我在广东深圳打工的日子</h2>
+    </a>
+    <div class="category-and-date">
+        
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/5/2
+            2023/4/9
         </span>
         
         
     </div>
-    
-    <div class="content" v-pre>
-        <p>AQS(AbstractQueuedSynchronizer) 抽象队列同步器，主要用来构建锁和同步器。在java.util.concurrent.locks包里。</p>
-<ul>
-<li>核心思想：<br>如果被请求的共享资源空闲，就把当前请求资源的线程设置为有效的工作线程，并将共享资源设置为锁定状态；<br>如果被请求的共享资源被占用，那么就把当前请求资源的线程加入到一个虚拟的双向队列里面，等待分配资源。</li>
-</ul>
-<p>虚拟的双向队列是不存在队列实例的，仅存在结点之间的关联关系</p>
-<p>AQS将每条请求共享资源的线程封装成一个CLH队列锁的一个节点（Node）来实现锁的分配。<br>在 CLH 队列锁中，一个节点表示一个线程，它保存着线程的引用（thread）、 当前节点在队列中的状态（waitStatus）、前驱节点（prev）、后继节点（next）。</p>
-<p>自旋锁适用于锁竞争不激烈、锁持有时间短的场景。</p>
-<p>自旋锁是互斥锁的一种实现：</p>
-<pre><code>
-public class SpinLock &#123;
-    
-    private AtomicReference<Thread> owner = new AtomicReference<Thread>();
-    
-    public void lock()&#123;
-        Thread currentThread = Thread.currentThread();
-        //如果锁被占用，则设置当前线程为锁的拥有者
-        while(!owner.compareAndSet(null, currentThread))&#123;
+    <div class="description">
+        <div class="content" v-pre>
             
-        &#125;
-    &#125;
-    
-    public void unlock()&#123;
-        Thread currentThread = Thread.currentThread();
-        //只有锁的拥有者才能释放锁
-        owner.compareAndSet(currentThread, null);
-    &#125;
-    
-&#125;
-</code></pre>
-<p>一个监视器锁上的解锁发生在该监视器锁的后续锁定之前<br>volatile 变量的写操作发生在该变量的后续读之前<br>JVM 的垃圾回收机制使开发者无需手动释放对象。但在 AQS 中需要在释放锁时显式的设置为 null，避免引用的残留，辅助垃圾回收。</p>
-<p>以 ReentrantLock 为例，state 初始值为 0，表示未锁定状态。A 线程 lock() 时，会调用 tryAcquire() 独占该锁并将 state+1 。此后，其他线程再 tryAcquire() 时就会失败，直到 A 线程 unlock() 到 state=0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A 线程自己是可以重复获取此锁的（state 会累加），这就是可重入的概念。但要注意，获取多少次就要释放多少次，这样才能保证 state 是能回到零态的。</p>
-<p>再以 CountDownLatch 以例，任务分为 N 个子线程去执行，state 也初始化为 N（注意 N 要与线程个数一致）。这 N 个子线程是并行执行的，每个子线程执行完后countDown() 一次，state 会 CAS(Compare and Swap) 减 1。等到所有子线程都执行完后(即 state=0 )，会 unpark() 主调用线程，然后主调用线程就会从 await() 函数返回，继续后余动作。</p>
+            <p>记得那是一个阴雨连绵的早上，我拖着破旧的行李箱，从南宁东站出发，在动车上睡了3个多小时后，迷迷糊糊的来的了福田，这也是我第一次来到深圳这个大城市。。。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
+    <div class="prev">
+        
+        <a class="page-num" href="/">
+            <i class="fa-solid fa-caret-left fa-fw"></i>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+            <a class="page-num" href="/">1</a>
+        </span>
+        
+        <span class="current">2</span>
+        
+    </div>
+    <div class="next">
+        
+    </div>
+</div>
 
     </div>
     
-    
-    
-    
-    
-    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">best-jun</div>
+        <div class="description">
+            <p>喜欢钻研新技术，热爱开源</p>
+
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="/">
+                    <i
+                        class="fa-brands fa-github fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io/">Argvchs</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+    </div>
     
 </div>
 
@@ -233,12 +289,6 @@ public class SpinLock &#123;
             
         </div>
         <script src="/js/main.js"></script>
-        
-        
-
-
-
-
         
 		
 		<canvas
