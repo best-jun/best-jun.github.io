@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <title>IO基础知识汇总 | best-jun の世界</title>
+        <meta name="author" content="best-jun" />
+        <meta name="description" content="主要用于记录个人感想，也作为学习笔记。" />
+        <meta name="keywords" content="Java 感悟 学习笔记" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/images/avatar.jpg" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>BEST-JUN の世界</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;BEST-JUN の世界</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <div class="article">
+    <div>
+        <h1>IO基础知识汇总</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/19
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>InputStream/Reader: 所有的输入流的基类，根据数据处理方式分为：字节输入流和字符输入流。<br>OutputStream/Writer: 所有输出流的基类，根据数据处理方式分为：字节输出流和字符输出流。</p>
+<h2 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h2><h3 id="InputStream（字节输入流）"><a href="#InputStream（字节输入流）" class="headerlink" title="InputStream（字节输入流）"></a>InputStream（字节输入流）</h3><p>常用方法：</p>
+<ul>
+<li>read():返回输入流中下一个字节的数据。返回的值介于 0 到 255 之间。如果未读取任何字节，则代码返回 -1 ，表示文件结束。</li>
+<li>read(byte b[]):从输入流中读取一些字节存储到数组 b 中。如果数组 b 的长度为零，则不读取。如果没有可用字节读取，返回 -1。如果有可用字节读取，则最多读取的字节数最多等于 b.length ， 返回读取的字节数。这个方法等价于 read(b, 0, b.length)。</li>
+<li>read(byte b[], int off, int len): 在read(byte b[ ]) 方法的基础上增加了 off 参数（偏移量）和 len 参数（要读取的最大字节数）。</li>
+<li>skip(long n):忽略输入流中的 n 个字节 ,返回实际忽略的字节数。</li>
+<li>available():返回输入流中可以读取的字节数。</li>
+<li>close():关闭输入流释放相关的系统资源。</li>
+</ul>
+<p>FileInputStream:文件字节输入流，可直接指定路径或文件类，就可以直接读取字节数据了。示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try (InputStream in = new FileInputStream(new File(<span class="string">&quot;a.txt&quot;</span>))) &#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="keyword">while</span> ((b = in.read()) != <span class="number">-1</span>) &#123;</span><br><span class="line">        System.out.print((<span class="type">char</span>) b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通常会配合 BufferedInputStream（字节缓冲输入流）来使用:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建一个 BufferedInputStream 对象</span></span><br><span class="line">BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(<span class="string">&quot;input.txt&quot;</span>));</span><br><span class="line"><span class="comment">// 读取文件的内容并复制到 String 对象中</span></span><br><span class="line">String result = new String(bufferedInputStream.readAllBytes());</span><br><span class="line">System.out.println(result);</span><br></pre></td></tr></table></figure>
+
+<h3 id="OutputStream（字节输出流）"><a href="#OutputStream（字节输出流）" class="headerlink" title="OutputStream（字节输出流）"></a>OutputStream（字节输出流）</h3><p>OutputStream 常用方法：</p>
+<ul>
+<li>write(int b)：将特定字节写入输出流。</li>
+<li>write(byte b[ ]) : 将数组b 写入到输出流，等价于 write(b, 0, b.length) 。</li>
+<li>write(byte[] b, int off, int len) : 在write(byte b[ ]) 方法的基础上增加了 off 参数（偏移量）和 len 参数（要读取的最大字节数）。</li>
+<li>flush()：刷新此输出流并强制写出所有缓冲的输出字节。</li>
+<li>close()：关闭输出流释放相关的系统资源。</li>
+</ul>
+<p>FileOutputStream;文件字节输出流，可直接指定路径或文件类，就可以直接输出字节数据了。示例:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try (FileOutputStream out = new FileOutputStream(new File(<span class="string">&quot;a.txt&quot;</span>))) &#123;</span><br><span class="line">    byte[] <span class="built_in">array</span> = <span class="string">&quot;Hello&quot;</span>.getBytes();</span><br><span class="line">    out.write(<span class="built_in">array</span>);</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通常也会配合 BufferedOutputStream（字节缓冲输出流）来使用:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fileOutputStream = new FileOutputStream(new File(<span class="string">&quot;a.txt&quot;</span>));</span><br><span class="line">BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream);</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><p>常用字符编码所占字节数？<br>utf8 :英文占 1 字节，中文占 3 字节，unicode：任何字符都占 2 个字节，gbk：英文占 1 字节，中文占 2 字节。</p>
+<h3 id="Reader（字符输入流）"><a href="#Reader（字符输入流）" class="headerlink" title="Reader（字符输入流）"></a>Reader（字符输入流）</h3><p>常用方法：</p>
+<ul>
+<li>read() : 从输入流读取一个字符。</li>
+<li>read(char[] cbuf) : 从输入流中读取一些字符，并将它们存储到字符数组 cbuf中，等价于 read(cbuf, 0, cbuf.length) 。</li>
+<li>read(char[] cbuf, int off, int len)：在read(char[] cbuf) 方法的基础上增加了 off 参数（偏移量）和 len 参数（要读取的最大字符数）。</li>
+<li>skip(long n)：忽略输入流中的 n 个字符 ,返回实际忽略的字符数。</li>
+<li>close() : 关闭输入流并释放相关的系统资源。</li>
+</ul>
+<p>InputStreamReader 是字节流转换为字符流的桥梁，其子类 FileReader 是基于该基础上的封装，可以直接操作字符文件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try (FileReader reader = new FileReader(new File(<span class="string">&quot;a.txt&quot;</span>));) &#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="keyword">while</span> ((b = reader.read()) != <span class="number">-1</span>) &#123;</span><br><span class="line">        System.out.print((<span class="type">char</span>) b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Writer（字符输出流）"><a href="#Writer（字符输出流）" class="headerlink" title="Writer（字符输出流）"></a>Writer（字符输出流）</h1><p>常用方法：</p>
+<ul>
+<li>write(int c) : 写入单个字符。</li>
+<li>write(char[] cbuf)：写入字符数组 cbuf，等价于write(cbuf, 0, cbuf.length)。</li>
+<li>write(char[] cbuf, int off, int len)：在write(char[] cbuf) 方法的基础上增加了 off 参数（偏移量）和 len 参数（要读取的最大字符数）。</li>
+<li>write(String str)：写入字符串，等价于 write(str, 0, str.length()) 。</li>
+<li>write(String str, int off, int len)：在write(String str) 方法的基础上增加了 off 参数（偏移量）和 len 参数（要读取的最大字符数）。</li>
+<li>append(CharSequence csq)：将指定的字符序列附加到指定的 Writer 对象并返回该 Writer 对象。</li>
+<li>append(char c)：将指定的字符附加到指定的 Writer 对象并返回该 Writer 对象。</li>
+<li>flush()：刷新此输出流并强制写出所有缓冲的输出字符。</li>
+<li>close():关闭输出流释放相关的系统资源。</li>
+</ul>
+<p>OutputStreamWriter 是字符流转换为字节流的桥梁，其子类 FileWriter 是基于该基础上的封装，可以直接将字符写入到文件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try (Writer writer = new FileWriter(new File(<span class="string">&quot;a.txt&quot;</span>))) &#123;</span><br><span class="line">    writer.write(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>通过组合替代继承，在不改变原有对象的情况下拓展其功能。</p>
+<p>对于字节流来说， FilterInputStream （对应输入流）和FilterOutputStream（对应输出流）是装饰器模式的核心，分别用于增强 InputStream 和OutputStream子类对象的功能。</p>
+<p>对于字符流来说，BufferedReader 可以用来增加 Reader （字符输入流）子类的功能，BufferedWriter 可以用来增加 Writer （字符输出流）子类的功能。</p>
+<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>主要用于接口互不兼容的类的协调工作。</p>
+<p>适配器模式中存在被适配的对象或者类称为 适配者(Adapter) ，作用于适配者的对象或者类称为适配器(Adapter) 。适配器分为对象适配器和类适配器。类适配器使用继承关系来实现，对象适配器使用组合关系来实现。</p>
+<p>InputStreamReader 使用 StreamDecoder （流解码器）对字节进行解码，实现字节流到字符流的转换， OutputStreamWriter 使用StreamEncoder（流编码器）对字符进行编码，实现字符流到字节流的转换。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader in = new InputStreamReader(new FileInputStream(fileName),<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">BufferedReader b = new BufferedReader(in);</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 best-jun の世界
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;best-jun
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+		
+		<canvas
+			id="fireworks"
+			style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"
+		></canvas>
+		<script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+		<script src="/js/fireworks.min.js"></script>
+
+    </body>
+</html>
