@@ -10,49 +10,35 @@
 </ul>
 <p>目前共计收录<strong>128</strong>个模型。</p>
 <h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><h2 id="Live2d-Cubism-2"><a href="#Live2d-Cubism-2" class="headerlink" title="Live2d Cubism 2"></a>Live2d Cubism 2</h2><ul>
-<li>引用必要的<code>js</code>文件：</li>
-</ul>
+<li><p>引用必要的<code>js</code>文件：</p>
 <pre><code class="html">&lt;script src=&quot;js/live2d.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<ul>
-<li>添加<code>canvas</code>元素：</li>
-</ul>
+</li>
+<li><p>添加<code>canvas</code>元素：</p>
 <pre><code class="html">&lt;canvas class=&quot;live2d&quot; id=&quot;live2d&quot; width=&quot;300&quot; height=&quot;800&quot;&gt;&lt;/canvas&gt;
 </code></pre>
-<ul>
-<li>添加<code>css</code>样式（非必须，可自定义）：</li>
-</ul>
+</li>
+<li><p>添加<code>css</code>样式（非必须，可自定义）：</p>
 <pre><code class="html">&lt;style&gt;
-    .live2d {
-        position: fixed;
-        bottom : 0;
-        left : 0;
-    }
+  .live2d {
+      position: fixed;
+      bottom : 0;
+      left : 0;
+  }
 &lt;/style&gt;
 </code></pre>
-<ul>
-<li>初始化live2d：</li>
-</ul>
+</li>
+<li><p>初始化live2d：</p>
 <pre><code class="js">loadlive2d(&quot;live2d&quot;, &quot;./model.json&quot;);
 </code></pre>
-<ul>
+</li>
 <li><p><code>LAppDefine.js</code>为live2d的配置文件，具体的配置信息见注释。</p>
 </li>
-<li><p><code>model</code>文件夹下是live2d的模型文件，目前已收录<strong>102</strong>种，其中数种模型有可更换皮肤。<br>模型文件夹的目录大体如下：</p>
+<li><p><code>model</code>文件夹下是live2d的模型文件，目前已收录<strong>102</strong>种，其中数种模型有可更换皮肤。<br>模型文件夹的目录大体如下：<br>```txt</p>
 </li>
 </ul>
-<pre><code class="txt">+-models（模型文件夹名称）
-|__+-texture（模型材质包）
-|__|___texture_00.png
-|__|___texture_01.png
-|__|___....
-|__+-motions（模型动作组）
-|__+-expression（模型表情组）
-|__+-sounds（模型音效）
-|__model.json（模型资源分布说明文件）
-|__model.moc（模型本体）
-</code></pre>
-<p>部分模型有所不同。</p>
+<p>+-models（模型文件夹名称）<br>|<strong>+-texture（模型材质包）<br>|</strong>|<strong>_texture_00.png<br>|__|_<strong>texture_01.png<br>|</strong>|</strong>_….<br>|<strong>+-motions（模型动作组）<br>|</strong>+-expression（模型表情组）<br>|__+-sounds（模型音效）<br>|__model.json（模型资源分布说明文件）<br>|__model.moc（模型本体）</p>
+<p>```<br>部分模型有所不同。</p>
 <h2 id="Live2d-Cubism-3"><a href="#Live2d-Cubism-3" class="headerlink" title="Live2d Cubism 3"></a>Live2d Cubism 3</h2><p>以上内容都是基于旧的Cubism Editor 2制作与开发，现在官网老早就使用<del>Cubism 3了（详见<a href="https://www.live2d.com/en/products/cubism3">Cubism 3 | Live2D</a>）</del> 已经到了Cubism 4了，不过与Cubism 3是兼容的，而且官方承诺以后的版本都向下兼容（除了Cubism 2）。</p>
 <p>Cubism 3使用的是<code>TypeScript</code>，相比第二版更加稳健，但我基于<a href="https://github.com/Yukariin/AzurLaneL2DViewer">AzurLaneL2DViewer</a>这个仓库进行了一些小修改，可像Cubism 2一样直接添加模型，不需要修改核心代码。</p>
 <p>live2d Cubism 3全部文件放在<code>live2d_3</code>中，可单独使用。</p>
@@ -61,8 +47,8 @@
 <li>Live2D官方网站： <a href="https://www.live2d.com/en/">https://www.live2d.com/en/</a> ； <a href="https://live2d.github.io/">https://live2d.github.io</a></li>
 <li><a href="https://mx-model.ga/">梦象</a> （live2d模型收集站）</li>
 <li><a href="https://haremu.com/p/205">Live2D！把可爱的看板娘捕捉到你的博客去吧</a></li>
-<li><a href="https://github.com/EYHN/hexo-helper-live2d">EYHN&#x2F;hexo-helper-live2d</a> （向hexo中添加live2d）</li>
+<li><a href="https://github.com/EYHN/hexo-helper-live2d">EYHN/hexo-helper-live2d</a> （向hexo中添加live2d）</li>
 <li><a href="https://www.fghrsh.net/post/123.html">网页添加 Live2D 看板娘</a></li>
 <li><a href="https://github.com/summerscar/live2dDemo">Live2dDemo</a> （live2d模型收集站）</li>
 </ul>
-<h1 id="版权须知"><a href="#版权须知" class="headerlink" title="版权须知"></a>版权须知</h1><p>所有模型均收集自互联网，版权均归原公司&#x2F;个人所有。您可将资源用于学习、非营利性的网站或项目，不得用于商业使用（付费分发售卖资源、二次修改用于盈利等）。</p>
+<h1 id="版权须知"><a href="#版权须知" class="headerlink" title="版权须知"></a>版权须知</h1><p>所有模型均收集自互联网，版权均归原公司/个人所有。您可将资源用于学习、非营利性的网站或项目，不得用于商业使用（付费分发售卖资源、二次修改用于盈利等）。</p>
