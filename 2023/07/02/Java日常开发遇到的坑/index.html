@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>best-jun の世界</title>
+        <title>Java日常开发遇到的坑 | best-jun の世界</title>
         <meta name="author" content="best-jun" />
         <meta name="description" content="主要用于记录个人感想，也作为学习笔记。" />
         <meta name="keywords" content="Java 感悟 学习笔记" />
@@ -32,7 +32,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -143,150 +145,107 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
-                <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>best-jun の世界</h1>
-                <h3></h3>
-                <h5>主要用于记录个人感想，也作为学习笔记。</h5>
-            </div>
-        </span>
+                <div class="article">
+    <div>
+        <h1>Java日常开发遇到的坑</h1>
     </div>
-</div>
-<div id="home-posts-wrap"  ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/">
-        <h2 class="post-title">我在广东深圳打工的日子</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/4/9
+            2023/7/2
         </span>
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>记得那是一个阴雨连绵的早上，我拖着破旧的行李箱，从南宁东站出发，在动车上睡了3个多小时后，迷迷糊糊的来的了福田，这也是我第一次来到深圳这个大城市。。。</p>
+    
+    <div class="content" v-pre>
+        <h2 id="一-空指针问题"><a href="#一-空指针问题" class="headerlink" title="一.空指针问题"></a>一.空指针问题</h2><h3 id="（1）包装类型空指针问题"><a href="#（1）包装类型空指针问题" class="headerlink" title="（1）包装类型空指针问题"></a>（1）包装类型空指针问题</h3><pre><code>
+Integer value = null;
+int res = value + 1;
+</code></pre>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/09/%E6%88%91%E5%9C%A8%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E6%89%93%E5%B7%A5%E7%9A%84%E6%97%A5%E5%AD%90/" class="go-post">阅读全文</a>
-</div>
+<h3 id="（2）级联调用的空指针问题"><a href="#（2）级联调用的空指针问题" class="headerlink" title="（2）级联调用的空指针问题"></a>（2）级联调用的空指针问题</h3><pre><code>
+//service.getMyService() 可能为空，会导致空指针问题
+service.getMyService().work();
+</code></pre>
+<h3 id="（3）Equals方法左边的空指针问题"><a href="#（3）Equals方法左边的空指针问题" class="headerlink" title="（3）Equals方法左边的空指针问题"></a>（3）Equals方法左边的空指针问题</h3><pre><code>
+String name = null;
+System.out.print(name.equals("best-jun"));
+</code></pre>
+<h3 id="（4）ConcurrentHashMap-这样的容器不支持-Key，Value-为-null。"><a href="#（4）ConcurrentHashMap-这样的容器不支持-Key，Value-为-null。" class="headerlink" title="（4）ConcurrentHashMap 这样的容器不支持 Key，Value 为 null。"></a>（4）ConcurrentHashMap 这样的容器不支持 Key，Value 为 null。</h3><pre><code>
+Map map = new ConcurrentHashMap<>();
+String key = null;
+String value = null;
+map.put(key, value); //报错
+</code></pre>
+<h3 id="（5）集合，数组直接获取元素"><a href="#（5）集合，数组直接获取元素" class="headerlink" title="（5）集合，数组直接获取元素"></a>（5）集合，数组直接获取元素</h3><pre><code>
+int [] arr = null;
+List list = null;
+System.out.println(arr[0]); //空指针异常
+System.out.println(list.get(0)); //空指针异常
+</code></pre>
+<h3 id="（6）对象直接获取属性"><a href="#（6）对象直接获取属性" class="headerlink" title="（6）对象直接获取属性"></a>（6）对象直接获取属性</h3><pre><code>
+Student s = null;
+System.out.println(s.getAge()); //空指针异常
+</code></pre>
 
-<div class="post">
-    <a href="/2023/04/09/hello-world/">
-        <h2 class="post-title">Hello World</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/9
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>Hexo 博客今天终于搭建好了，纪念一下</p>
+<h2 id="二-Integer缓存的问题"><a href="#二-Integer缓存的问题" class="headerlink" title="二.Integer缓存的问题"></a>二.Integer缓存的问题</h2><pre><code>
+Integer a = 127;
+Integer b = 127;
+System.out.println("a==b:"+ (a == b));
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/09/hello-world/" class="go-post">阅读全文</a>
-</div>
+Integer c = 128;
+Integer d = 128;
+System.out.println("c==d:"+ (c == d));
+</code></pre>
+<p>运行结果：</p>
+<pre><code>
+a==b:true
+c==d:false
+</code></pre>
+<p>原理：默认情况下呢，Integer的缓存区间就是[-128, 127]，所以会出现这种情况。<br>另外，可以通过设置 JVM 参数加上 -XX:AutoBoxCacheMax=1000，来调整Integer缓存区间参数的</p>
+<h2 id="三-事务未生效的坑"><a href="#三-事务未生效的坑" class="headerlink" title="三.事务未生效的坑"></a>三.事务未生效的坑</h2><ul>
+<li>底层数据库引擎不支持事务</li>
+<li>在非public修饰的方法使用</li>
+<li>rollbackFor属性设置错误</li>
+<li>本类方法直接调用<pre><code>
+public class TransactionTest&#123;
+public void A()&#123;
+  //插入一条数据
+  //调用方法B (本地的类调用，事务失效了)
+  B();
+&#125;
 
-
-        <div class="page-current">
-    <div class="prev">
-        
-        <a class="page-num" href="/">
-            <i class="fa-solid fa-caret-left fa-fw"></i>
-        </a>
-        
-    </div>
-    <div class="page-index">
-        
-        <span>
-            
-            
-            <a class="page-num" href="/">1</a>
-        </span>
-        
-        <span class="current">2</span>
-        
-    </div>
-    <div class="next">
-        
-    </div>
-</div>
+@Transactional
+public void B()&#123;
+  //插入数据
+&#125;
+&#125;
+</code></pre></li>
+<li>异常被try…catch吃了，导致事务失效。<pre><code>
+@Transactional
+public void method()&#123;
+try&#123;
+  //插入一条数据
+  insertA();
+  //更改一条数据
+  updateB();
+&#125;catch(Exception e)&#123;
+  logger.error("异常被捕获了，那你的事务就失效咯",e);
+&#125;
+&#125;
+</code></pre></li>
+</ul>
 
     </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">best-jun</div>
-        <div class="description">
-            <p>喜欢钻研新技术，热爱开源</p>
-
-        </div>
-        
-        <div class="icon-links">
-            
-            <span class="icon-link">
-                <a href="/">
-                    <i
-                        class="fa-brands fa-github fa-fw"
-                    ></i>
-                </a>
-            </span>
-            
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.github.io/">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
+    
+    
+    
+    
     
 </div>
 
@@ -319,6 +278,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
 		
 		<canvas

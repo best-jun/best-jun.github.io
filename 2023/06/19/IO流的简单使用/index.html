@@ -172,10 +172,25 @@
 <li>close():关闭输入流释放相关的系统资源。</li>
 </ul>
 <p>FileInputStream:文件字节输入流，可直接指定路径或文件类，就可以直接读取字节数据了。示例：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try (InputStream in = new FileInputStream(new File(<span class="string">&quot;a.txt&quot;</span>))) &#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="keyword">while</span> ((b = in.read()) != <span class="number">-1</span>) &#123;</span><br><span class="line">        System.out.print((<span class="type">char</span>) b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>
+try (InputStream in = new FileInputStream(new File("a.txt"))) &#123;
+    int b;
+    while ((b = in.read()) != -1) &#123;
+        System.out.print((char) b);
+    &#125;
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125;
+</code></pre>
 
 <p>通常会配合 BufferedInputStream（字节缓冲输入流）来使用:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建一个 BufferedInputStream 对象</span></span><br><span class="line">BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(<span class="string">&quot;input.txt&quot;</span>));</span><br><span class="line"><span class="comment">// 读取文件的内容并复制到 String 对象中</span></span><br><span class="line">String result = new String(bufferedInputStream.readAllBytes());</span><br><span class="line">System.out.println(result);</span><br></pre></td></tr></table></figure>
+<pre><code>
+// 新建一个 BufferedInputStream 对象
+BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream("input.txt"));
+// 读取文件的内容并复制到 String 对象中
+String result = new String(bufferedInputStream.readAllBytes());
+System.out.println(result);
+</code></pre>
 
 <h3 id="OutputStream（字节输出流）"><a href="#OutputStream（字节输出流）" class="headerlink" title="OutputStream（字节输出流）"></a>OutputStream（字节输出流）</h3><p>OutputStream 常用方法：</p>
 <ul>
@@ -186,10 +201,20 @@
 <li>close()：关闭输出流释放相关的系统资源。</li>
 </ul>
 <p>FileOutputStream;文件字节输出流，可直接指定路径或文件类，就可以直接输出字节数据了。示例:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try (FileOutputStream out = new FileOutputStream(new File(<span class="string">&quot;a.txt&quot;</span>))) &#123;</span><br><span class="line">    byte[] <span class="built_in">array</span> = <span class="string">&quot;Hello&quot;</span>.getBytes();</span><br><span class="line">    out.write(<span class="built_in">array</span>);</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>
+try (FileOutputStream out = new FileOutputStream(new File("a.txt"))) &#123;
+    byte[] array = "Hello".getBytes();
+    out.write(array);
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125;
+</code></pre>
 
 <p>通常也会配合 BufferedOutputStream（字节缓冲输出流）来使用:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fileOutputStream = new FileOutputStream(new File(<span class="string">&quot;a.txt&quot;</span>));</span><br><span class="line">BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream);</span><br></pre></td></tr></table></figure>
+<pre><code>
+FileOutputStream fileOutputStream = new FileOutputStream(new File("a.txt"));
+BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream);
+</code></pre>
 
 <h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><p>常用字符编码所占字节数？<br>utf8 :英文占 1 字节，中文占 3 字节，unicode：任何字符都占 2 个字节，gbk：英文占 1 字节，中文占 2 字节。</p>
 <h3 id="Reader（字符输入流）"><a href="#Reader（字符输入流）" class="headerlink" title="Reader（字符输入流）"></a>Reader（字符输入流）</h3><p>常用方法：</p>
@@ -201,7 +226,16 @@
 <li>close() : 关闭输入流并释放相关的系统资源。</li>
 </ul>
 <p>InputStreamReader 是字节流转换为字符流的桥梁，其子类 FileReader 是基于该基础上的封装，可以直接操作字符文件。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try (FileReader reader = new FileReader(new File(<span class="string">&quot;a.txt&quot;</span>));) &#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="keyword">while</span> ((b = reader.read()) != <span class="number">-1</span>) &#123;</span><br><span class="line">        System.out.print((<span class="type">char</span>) b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>
+try (FileReader reader = new FileReader(new File("a.txt"));) &#123;
+    int b;
+    while ((b = reader.read()) != -1) &#123;
+        System.out.print((char) b);
+    &#125;
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125;
+</code></pre>
 <h1 id="Writer（字符输出流）"><a href="#Writer（字符输出流）" class="headerlink" title="Writer（字符输出流）"></a>Writer（字符输出流）</h1><p>常用方法：</p>
 <ul>
 <li>write(int c) : 写入单个字符。</li>
@@ -215,7 +249,14 @@
 <li>close():关闭输出流释放相关的系统资源。</li>
 </ul>
 <p>OutputStreamWriter 是字符流转换为字节流的桥梁，其子类 FileWriter 是基于该基础上的封装，可以直接将字符写入到文件。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try (Writer writer = new FileWriter(new File(<span class="string">&quot;a.txt&quot;</span>))) &#123;</span><br><span class="line">    writer.write(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125; catch (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>
+try (Writer writer = new FileWriter(new File("a.txt"))) &#123;
+    writer.write("Hello");
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125;
+
+</code></pre>
 
 <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>通过组合替代继承，在不改变原有对象的情况下拓展其功能。</p>
 <p>对于字节流来说， FilterInputStream （对应输入流）和FilterOutputStream（对应输出流）是装饰器模式的核心，分别用于增强 InputStream 和OutputStream子类对象的功能。</p>
@@ -223,7 +264,10 @@
 <h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>主要用于接口互不兼容的类的协调工作。</p>
 <p>适配器模式中存在被适配的对象或者类称为 适配者(Adapter) ，作用于适配者的对象或者类称为适配器(Adapter) 。适配器分为对象适配器和类适配器。类适配器使用继承关系来实现，对象适配器使用组合关系来实现。</p>
 <p>InputStreamReader 使用 StreamDecoder （流解码器）对字节进行解码，实现字节流到字符流的转换， OutputStreamWriter 使用StreamEncoder（流编码器）对字符进行编码，实现字符流到字节流的转换。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader in = new InputStreamReader(new FileInputStream(fileName),<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">BufferedReader b = new BufferedReader(in);</span><br></pre></td></tr></table></figure>
+<pre><code>
+InputStreamReader in = new InputStreamReader(new FileInputStream(fileName),"UTF-8");
+BufferedReader b = new BufferedReader(in);
+</code></pre>
     </div>
     
     
