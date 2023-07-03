@@ -162,13 +162,24 @@
     
     <div class="content" v-pre>
         <h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p>三种方式：<br>1.使用 <code>CREATE INDEX</code> 创建，语法如下：<br><code>CREATE INDEX indexName ON tableName (columnName(length));</code><br>例如：<code>CREATE INDEX name_idx ON t_user (name(10));</code><br>2.使用<code>ALTER</code>语句创建，语法如下：<br><code>ALTER TABLE tableName ADD INDEX indexName(columnName);</code><br>3.建表的时候创建索引：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tableName(</span><br><span class="line">    id INT NOT NULL,</span><br><span class="line">    columnName columnType,</span><br><span class="line">    INDEX [indexName] (columnName(length))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre><code>
+CREATE TABLE tableName(
+    id INT NOT NULL,
+    columnName columnType,
+    INDEX [indexName] (columnName(length))
+);
+</code></pre>
 <h2 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h2><p>可以通过show语句查看索引：<br><code>SHOW INDEX FROM t_user;</code></p>
 <h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p>使用<code>ALTER</code>命令删除索引，例如：<br><code>ALTER TABLE t_user DROP INDEX name_idx;</code></p>
 <h2 id="索引使用原则"><a href="#索引使用原则" class="headerlink" title="索引使用原则"></a>索引使用原则</h2><p>因为使用索引，需要付出时间和空间的代价，所以要合理使用索引。</p>
 <h3 id="写操作比较频繁的列慎重加索引"><a href="#写操作比较频繁的列慎重加索引" class="headerlink" title="写操作比较频繁的列慎重加索引"></a>写操作比较频繁的列慎重加索引</h3><p>因为在进行DML操作时，还要更新索引，所以会降低插入、删除、和更新带索引的列的速度</p>
 <h3 id="索引越多占用磁盘空间越大"><a href="#索引越多占用磁盘空间越大" class="headerlink" title="索引越多占用磁盘空间越大"></a>索引越多占用磁盘空间越大</h3><h3 id="不要为输出列加索引"><a href="#不要为输出列加索引" class="headerlink" title="不要为输出列加索引"></a>不要为输出列加索引</h3><p>为查询条件、分组、连接条件的列加索引，而不是为查询输出结果的列加索引。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select age from t_user</span><br><span class="line">where name = &#x27;哈喽&#x27;</span><br><span class="line">group by class</span><br><span class="line">order by create_time;</span><br></pre></td></tr></table></figure>
+<pre><code>
+select age from t_user
+where name = '哈喽'
+group by class
+order by create_time;
+</code></pre>
 <p>所以可以在 <code>name</code> <code>class</code> <code>create_time</code> 列上加索引，而不是<code>age</code>。</p>
 <h3 id="考虑维度优势"><a href="#考虑维度优势" class="headerlink" title="考虑维度优势"></a>考虑维度优势</h3><p>例如 <code>class</code> 列的值包含：1、2、3、4、5，那么该列的维度就是5。<br>维度越高（理论上维度的最大值就是数据行的总数），数据列包含的独一无二的值就越多，索引的使用效果越好。<br>对于维度很低的数据列，索引几乎不会起作用，因此没有必要加索引。</p>
 <p>例如性别列的值只有男和女，每种查询结果占比大约50%。一般当查询优化处理器发现查询结果超过全表的30%的时候，就会跳过索引，直接进行全表扫描。</p>
